@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, type FC } from "react";
 import { validators } from "../utils";
 import { FaAngleDown, FaSearch } from "react-icons/fa";
 import clsx from "clsx";
 import useDebounce from "../hooks/useDebounce";
 import { DropDownProps } from "../types";
 
-const DropDown: React.FC<DropDownProps> = ({
+const DropDown: FC<DropDownProps> = ({
   name,
   label,
   value,

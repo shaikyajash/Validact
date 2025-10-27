@@ -1,9 +1,9 @@
 // components/SubmitButton.tsx
-import React from "react";
+import { type FC } from "react";
 import clsx from "clsx";
 import { SubmitButtonProps } from "../types";
 
-const SubmitButton: React.FC<SubmitButtonProps> = ({
+const SubmitButton: FC<SubmitButtonProps> = ({
   disabled = false,
   label = "Submit",
   styleProps = {},

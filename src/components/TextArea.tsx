@@ -1,10 +1,10 @@
 // components/TextArea.tsx
-import React from "react";
+import { type FC } from "react";
 import clsx from "clsx";
 import { TextAreaProps } from "../types";
 import { validators, minLength, maxLength, type ValidationFunction } from "../utils";
 
-const TextArea: React.FC<TextAreaProps> = ({
+const TextArea: FC<TextAreaProps> = ({
   name,
   label,
   value,

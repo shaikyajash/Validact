@@ -1,11 +1,11 @@
 // components/Input.tsx
-import React, { useState } from "react";
+import { useState, type FC } from "react";
 import clsx from "clsx";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { InputProps } from "../types";
 import { validators, minLength, maxLength, type ValidationFunction } from "../utils";
 
-const Input: React.FC<InputProps> = ({
+const Input: FC<InputProps> = ({
   name,
   label,
   value,

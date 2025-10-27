@@ -9,7 +9,9 @@ export default defineConfig(({ command }) => {
   // Dev mode (dev, preview) - regular React app
   if (command === 'serve') {
     return {
-      plugins: [react()],
+      plugins: [react({
+        jsxImportSource: 'react'
+      })],
       root: '.',
       server: {
         port: 3000,
@@ -21,7 +23,9 @@ export default defineConfig(({ command }) => {
   // Build mode - library mode
   return {
     plugins: [
-      react(),
+      react({
+        jsxImportSource: 'react'
+      }),
       dts({
         include: ['src/**/*.ts', 'src/**/*.tsx', 'index.ts'],
         outDir: 'dist',

@@ -1,10 +1,10 @@
 // components/RadioButton.tsx
-import React from "react";
+import { type FC } from "react";
 import clsx from "clsx";
 import { RadioProps } from "../types";
 import { validators, minLength, maxLength, type ValidationFunction } from "../utils";
 
-const RadioButton: React.FC<RadioProps> = ({
+const RadioButton: FC<RadioProps> = ({
   name,
   label,
   value,

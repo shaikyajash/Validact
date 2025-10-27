@@ -1,11 +1,11 @@
 // components/FilePicker.tsx
-import React, { useRef, useState, useCallback } from "react";
+import { useRef, useState, useCallback, type FC } from "react";
 import clsx from "clsx";
 import { FilePickerProps, FileInfoProps, FileListProps, DragDropAreaProps } from "../types";
 import { validators, fileRequired, fileRequiredMultiple, fileType, fileTypeMultiple, type ValidationFunction } from "../utils";
 
 // File Info Component
-const FileInfo: React.FC<FileInfoProps> = ({ file, onRemove, styleProps = {} }) => {
+const FileInfo: FC<FileInfoProps> = ({ file, onRemove, styleProps = {} }) => {
     const formatFileSize = (bytes: number): string => {
         if (bytes === 0) return '0 Bytes';
         const k = 1024;
@@ -45,7 +45,7 @@ const FileInfo: React.FC<FileInfoProps> = ({ file, onRemove, styleProps = {} }) 
 };
 
 // File List Component for multiple files
-const FileList: React.FC<FileListProps> = ({ files, onRemoveFile, onRemoveAll, styleProps = {} }) => {
+const FileList: FC<FileListProps> = ({ files, onRemoveFile, onRemoveAll, styleProps = {} }) => {
     const formatFileSize = (bytes: number): string => {
         if (bytes === 0) return '0 Bytes';
         const k = 1024;
@@ -111,7 +111,7 @@ const FileList: React.FC<FileListProps> = ({ files, onRemoveFile, onRemoveAll, s
 };
 
 // Drag and Drop Area Component
-const DragDropArea: React.FC<DragDropAreaProps> = ({ 
+const DragDropArea: FC<DragDropAreaProps> = ({ 
     onFileSelect, 
     accept, 
     multiple = false,
@@ -199,7 +199,7 @@ const DragDropArea: React.FC<DragDropAreaProps> = ({
     );
 };
 
-const FilePicker: React.FC<FilePickerProps> = ({
+const FilePicker: FC<FilePickerProps> = ({
     name,
     label,
     value,

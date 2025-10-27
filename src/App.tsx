@@ -1,9 +1,9 @@
-import React from 'react';
+import { type FC } from 'react';
 import { Input, TextArea, RadioButton, SubmitButton, DropDown, FilePicker } from './components';
 import { useFormValidation, type FormValue } from './hooks';
 import { type ValidationFunction } from './utils';
 
-const App = () => {
+const App: FC = () => {
     // Custom validation function for age
     const validateAge: ValidationFunction = (value) => {
         if (typeof value !== 'string') return 'Age must be a number';
