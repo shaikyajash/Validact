@@ -58,11 +58,11 @@ const Input: React.FC<InputProps> = ({
             }
 
             if (validator) {
-                onBlur(name, value, validator);
+                onBlur?.(name, value, validator);
             }
         } else {
             // No schema provided - call onBlur directly (for custom validation)
-            onBlur(name, value);
+            onBlur?.(name, value);
         }
     }
   };

@@ -23,7 +23,7 @@ export interface TextAreaProps {
     ) => void;
 
     // Error message from validation
-    error?: string | null;
+    error?: string | null | undefined;
 
     // Schema for validation - supports string or object format (same as Input)
     schema?: SchemaConfig;

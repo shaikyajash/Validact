@@ -244,7 +244,7 @@ const FilePicker: React.FC<FilePickerProps> = ({
             }
 
             if (validator) {
-                onBlur(name, value, validator);
+                onBlur?.(name, value, validator);
             }
         }
     };
@@ -261,7 +261,7 @@ const FilePicker: React.FC<FilePickerProps> = ({
                 if (oversizedFiles.length > 0) {
                     const sizeError = `File size must be less than ${Math.round(maxSize / (1024 * 1024))}MB`;
                     if (onBlur) {
-                        onBlur(name, null, () => sizeError);
+                        onBlur?.(name, null, () => sizeError);
                     }
                     return;
                 }
@@ -273,11 +273,11 @@ const FilePicker: React.FC<FilePickerProps> = ({
                 // For multiple files, combine with existing files
                 const existingFiles = Array.isArray(value) ? value : [];
                 finalFiles = [...existingFiles, ...fileArray];
-                onChange(name, finalFiles);
+                onChange?.(name, finalFiles);
             } else {
                 // For single file, replace
                 finalFiles = fileArray[0];
-                onChange(name, finalFiles);
+                onChange?.(name, finalFiles);
             }
             
             // Trigger validation immediately after file selection
@@ -312,7 +312,7 @@ const FilePicker: React.FC<FilePickerProps> = ({
                 }
             }
         } else {
-            onChange(name, null);
+            onChange?.(name, null);
         }
     };
 
@@ -326,7 +326,7 @@ const FilePicker: React.FC<FilePickerProps> = ({
                 if (oversizedFiles.length > 0) {
                     const sizeError = `File size must be less than ${Math.round(maxSize / (1024 * 1024))}MB`;
                     if (onBlur) {
-                        onBlur(name, null, () => sizeError);
+                        onBlur?.(name, null, () => sizeError);
                     }
                     return;
                 }
@@ -338,11 +338,11 @@ const FilePicker: React.FC<FilePickerProps> = ({
                 // For multiple files, combine with existing files
                 const existingFiles = Array.isArray(value) ? value : [];
                 finalFiles = [...existingFiles, ...fileArray];
-                onChange(name, finalFiles);
+                onChange?.(name, finalFiles);
             } else {
                 // For single file, replace
                 finalFiles = fileArray[0];
-                onChange(name, finalFiles);
+                onChange?.(name, finalFiles);
             }
             
             // Trigger validation immediately after file selection
@@ -380,7 +380,7 @@ const FilePicker: React.FC<FilePickerProps> = ({
     };
 
     const handleRemoveFile = () => {
-        onChange(name, null);
+        onChange?.(name, null);
         if (fileInputRef.current) {
             fileInputRef.current.value = '';
         }
@@ -389,12 +389,12 @@ const FilePicker: React.FC<FilePickerProps> = ({
     const handleRemoveFileAtIndex = (index: number) => {
         if (Array.isArray(value)) {
             const newFiles = value.filter((_, i) => i !== index);
-            onChange(name, newFiles.length > 0 ? newFiles : null);
+            onChange?.(name, newFiles.length > 0 ? newFiles : null);
         }
     };
 
     const handleRemoveAllFiles = () => {
-        onChange(name, null);
+        onChange?.(name, null);
         if (fileInputRef.current) {
             fileInputRef.current.value = '';
         }

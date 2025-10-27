@@ -50,7 +50,7 @@ export interface InputProps {
     ) => void;
 
     // Error message from validation
-    error?: string | null;
+    error?: string | null | undefined;
 
     // Schema for validation - supports string or object format
     schema?: SchemaConfig;

@@ -30,7 +30,7 @@ const DropDown: React.FC<DropDownProps> = ({
   // Handle validation when dropdown closes
   const handleDropdownClose = () => {
     if (hasBeenOpened && onBlur) {
-      onBlur(name, value, validators.required());
+      onBlur?.(name, value, validators.required());
     }
   };
 
@@ -132,10 +132,10 @@ const DropDown: React.FC<DropDownProps> = ({
               )}
               onClick={() => {
                 setShowDropdown(false);
-                onChange(name, optionValue);
+                onChange?.(name, optionValue);
                 // Validate after selection
                 if (hasBeenOpened && onBlur) {
-                  onBlur(name, optionValue, validators.required());
+                  onBlur?.(name, optionValue, validators.required());
                 }
               }}
             >

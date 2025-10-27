@@ -15,9 +15,9 @@ export interface FilePickerProps {
     name: string;
     label: string;
     value: File | File[] | null; // Support both single and multiple files
-    onChange: (name: string, value: any) => void; // Unified handler
-    onBlur: (name: string, value: any, validator?: any) => void; // Unified handler
-    error?: string | null;
+    onChange?: (name: string, value: any) => void; // Unified handler
+    onBlur?: (name: string, value: any, validator?: any) => void; // Unified handler
+    error?: string | null | undefined;
     schema: 'file' | FilePickerSchema;
     styleProps?: FilePickerStyleProps;
     accept?: string; // HTML accept attribute for file input

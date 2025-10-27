@@ -15,9 +15,9 @@ export interface DropDownProps {
     label: string;
     value: string;
     options: string[];
-    error: string | null;
-    onChange: (name: string, value: string) => void;
-    onBlur: (
+    error?: string | null | undefined;
+    onChange?: (name: string, value: string) => void;
+    onBlur?: (
         name: string,
         value: string,
         validator?: ValidationFunction | ValidationFunction[]

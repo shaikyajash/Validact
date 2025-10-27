@@ -43,7 +43,7 @@ const TextArea: React.FC<TextAreaProps> = ({
         }
 
         if (validator) {
-            onBlur(name, value, validator);
+            onBlur?.(name, value, validator);
         }
     }
   };

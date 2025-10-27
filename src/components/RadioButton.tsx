@@ -44,7 +44,7 @@ const RadioButton: React.FC<RadioProps> = ({
         }
 
         if (validator) {
-            onBlur(name, value, validator);
+            onBlur?.(name, value, validator);
         }
     }
   };
