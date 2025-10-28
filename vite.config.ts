@@ -40,7 +40,17 @@ export default defineConfig(({ command }) => {
         fileName: (format) => `index.${format}.js`
       },
       rollupOptions: {
-        external: ['react', 'react-dom'],
+        // Externalize React and the JSX runtimes so the library doesn't
+        // bundle React internals. Consumers must provide React as a
+        // peer dependency. This avoids duplicate React copies and the
+        // "ReactCurrentDispatcher" undefined error when used in Vite.
+        external: [
+          'react',
+          'react-dom',
+          // JSX runtimes used by modern compilers/plugins
+          'react/jsx-runtime',
+          'react/jsx-dev-runtime'
+        ],
         output: {
           assetFileNames: 'styles.css',
           globals: {
